@@ -86,7 +86,11 @@ function doTheTweets() {
         } else if (config.say === 'cat') {
           parrotBox.content = catSay(tweet.text);
           screen.render();
-        } else {
+        } else if(config.say === 'zry'){
+          parrotBox.content = zrySay(tweet.text);
+          screen.render();
+        }
+        else {
           parrotSay(tweet.text).then(function(text) {
             parrotBox.content = text;
             screen.render();
@@ -142,7 +146,7 @@ function makeBox(label) {
       type: 'line'  // or bg
     },
     style: {
-      fg: 'white',
+      fg: 'black',
       border: { fg: 'cyan' },
       hover: { border: { fg: 'green' }, }
     }
@@ -238,3 +242,18 @@ function catSay(text) {
    　　　　　 ∪`
     ;
 }
+
+function zrySay(text) {
+  return `
+    ${text} 
+            ∩∩
+        　（･ω･）
+        　　│ │
+        　　│ └─┐○
+        　  ヽ　　　丿
+        　　 　∥￣∥
+        来自张若昀的凝视
+`;
+}
+
+
